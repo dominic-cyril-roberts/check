@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>check</title>
+
+    <script>
+        window.addEventListener('load', (e) => {
+            //Gather metedata
+            // let items = document.getElementsByClassName('item');
+            items = {
+                '0': {
+                    title: 'Organize Social Accounts',
+                    description: 'I need to customize/monetizeplan content strategies around the platforms I\'m on',
+                    nextChild: '2', nextSibling: '1'
+                },
+                '1': {
+                    title: 'Leads',
+                    description: 'These are potential revenue streams that I am following up on or should',
+                    nextChild: '3', nextSibling: ''
+                },
+                '2': {
+                    title: "Instagram",
+                    description: "I need to customize/monetize/plan content strategies around the platforms I'm on",
+                    nextSibling: '', nextChild: ''
+                },
+                '3': {
+                    title: 'Google',
+                    description: 'I sure would like to work on Keep, specifically, and also onboarding/recruitment/internships',
+                    nextChild: '', nextSibling: ''
+                }
+            };
+
+
+            let masterList = document.getElementById('master-list');
+
+            // for (const [id, item] of Object.entries(items))  {
+            for (id in items) {
+                let item = items[id];
+
+                console.log(id);
+                
+                //scaffold the item
+                let listItem = document.createElement('li');
+                listItem.innerText = item.title;
+
+                //build out it's sub-lists
+                if (item.nextChild) {
+                    //build next child and append it to the current listItem
+                }
+
+                //append this item to the master list in order
+            };
+        });
+    </script>
+</head>
+
+<body>
+
+    <ul id="master-list">
+
+    </ul>
+
+    <!-- <div class="item" id="0" title="Organize Social Accounts"
+        data-description="I need to customize/monetize/plan content strategies around the platforms I'm on"
+        data-next-child="2" data-next-sibling="1">
+        <div class="item" id="2" title="Instagram"
+            data-description="looks like the next move will be to upgrade to a professional program" data-next-child=""
+            data-next-sibling="">
+
+        </div>
+    </div>
+
+    <div class="item" id="1" title="Leads"
+        data-description="These are potential revenue streams that I am following up on or should" data-next-child="3"
+        data-next-sibling="">
+        <div class="item" id="3" title="Google"
+            data-description="I sure would like to work on Keep, specifically, and also onboarding/recruitment/internships"
+            data-next-child="" data-next-sibling="">
+        </div>
+    </div> -->
+
+</body>
+
+</html>
