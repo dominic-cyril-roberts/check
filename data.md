@@ -8,15 +8,18 @@
 5,        - Set up the data
 6,            - [X] Scaffold in markdown
 7,            - [X] Mock this in JSON
-8,            - [] Given json data (entities + relationships) render the page
-9,                - [] Render the node 
-10                - [] render its child
-11                - [] render its sibling
+8,            - [X] Given json data (entities + relationships) render the page
+9,                - [X] Render the node 
+10                - [X] render its child
+11                - [X] render its sibling
 12        - Structure the page
 13            - [X] Scaffold out html
 14        - Implement the logic
-            - [] Update
-            - [] Add
+            - [] addSibling(targetNode, newNode)
+                - generate a new Node (title, and new id)
+                - append it to the specified node
+            - [] updateNode(title)
+                - modify this node's title and rerender 
             - [] Delete
           - Server (node + mongodb for the actual data layer)
 15        - [X] Recording/Editing process

@@ -9,76 +9,131 @@
     <title>check</title>
 
     <script>
-        let relationships = [
-            { "target": 0, "child": 1, "sibling": 3 },
-            { "target": 1, "child": null, "sibling": 2 },
-            { "target": 2, "child": null, "sibling": null },
-            { "target": 3, "child": 4, "sibling": 16 },
-            { "target": 4, "child": 5, "sibling": 17 },
-            { "target": 5, "child": 6, "sibling": 7 },
-            { "target": 6, "child": null, "sibling": 8 },
-            { "target": 7, "child": null, "sibling": null },
-            { "target": 8, "child": 9, "sibling": null },
-            { "target": 9, "child": null, "sibling": null },
-            { "target": 10, "child": null, "sibling": null },
-            { "target": 11, "child": null, "sibling": null },
-            { "target": 12, "child": 13, "sibling": 14 },
-            { "target": 13, "child": null, "sibling": 15 },
-            { "target": 14, "child": null, "sibling": null },
-            { "target": 15, "child": null, "sibling": null },
-            { "target": 16, "child": null, "sibling": null },
-            { "target": 17, "child": 18, "sibling": 20 },
-            { "target": 18, "child": null, "sibling": 19 },
-            { "target": 19, "child": null, "sibling": null },
-            { "target": 20, "child": 21, "sibling": null },
-            { "target": 21, "child": null, "sibling": 22 },
-            { "target": 22, "child": null, "sibling": null },
-        ];
+        let relationships = {
+             "0": { "child": 1, "sibling": 3 },
+             "1": { "child": null, "sibling": 2 },
+             "2": { "child": null, "sibling": null },
+             "3": { "child": 4, "sibling": 16 },
+             "4": { "child": 5, "sibling": 17 },
+             "5": { "child": 6, "sibling": 7 },
+             "6": { "child": null, "sibling": 8 },
+             "7": { "child": null, "sibling": null },
+             "8": { "child": 9, "sibling": null },
+             "9": { "child": null, "sibling": null },
+             "10": { "child": null, "sibling": null },
+             "11": { "child": null, "sibling": null },
+             "12": { "child": 13, "sibling": 14 },
+             "13": { "child": null, "sibling": 15 },
+             "14": { "child": null, "sibling": null },
+             "15": { "child": null, "sibling": null },
+             "16": { "child": null, "sibling": null },
+             "17": { "child": 18, "sibling": 20 },
+             "18": { "child": null, "sibling": 19 },
+             "19": { "child": null, "sibling": null },
+             "20": { "child": 21, "sibling": null },
+             "21": { "child": null, "sibling": 22 },
+             "22": { "child": null, "sibling": null },
+        };
 
-        let checklistNodes = [
-            { "id": 0, "title": "Music" },
-            { "id": 1, "title": "Offended" },
-            { "id": 2, "title": "Krystal" },
-            { "id": 3, "title": "Code" },
-            { "id": 4, "title": "Check" },
-            { "id": 5, "title": "Set up the data" },
-            { "id": 6, "title": "Scaffold in markdown" },
-            { "id": 7, "title": "Mock this in JSON" },
-            { "id": 8, "title": "Given json data (entities + relationships) render the page" },
-            { "id": 9, "title": "Render the node " },
-            { "id": 10, "title": "render its child" },
-            { "id": 11, "title": "render its sibling" },
-            { "id": 12, "title": "Structure the page" },
-            { "id": 13, "title": "Scaffold out html" },
-            { "id": 14, "title": "Implement the logic" },
-            { "id": 15, "title": "Recording/Editing process" },
-            { "id": 16, "title": "Personal Site" },
-            { "id": 17, "title": "Activities" },
-            { "id": 18, "title": "Go to cafe" },
-            { "id": 19, "title": "Go for a walk" },
-            { "id": 20, "title": "Admin" },
-            { "id": 21, "title": "Contact local ISKF chapter to meet and see if I can train/instruct" },
-            { "id": 22, "title": "Set up a free trial at one competitive" }
-        ];
+        let nodes = {
+            "0" : { "id": "0", "title": "Music" },
+            "1" : { "id": "1", "title": "Offended" },
+            "2" : { "id": "2", "title": "Krystal" },
+            "3" : { "id": "3", "title": "Code" },
+            "4" : { "id": "4", "title": "Check" },
+            "5" : { "id": "5", "title": "Set up the data" },
+            "6" : { "id": "6", "title": "Scaffold in markdown" },
+            "7" : { "id": "7", "title": "Mock this in JSON" },
+            "8" : { "id": "8", "title": "Given json data (entities + relationships) render the page" },
+            "9" : { "id": "9", "title": "Render the node " },
+            "10" : { "id": "10", "title": "render its child" },
+            "11" : { "id": "11", "title": "render its sibling" },
+            "12" : { "id": "12", "title": "Structure the page" },
+            "13" : { "id": "13", "title": "Scaffold out html" },
+            "14" : { "id": "14", "title": "Implement the logic" },
+            "15" : { "id": "15", "title": "Recording/Editing process" },
+            "16" : { "id": "16", "title": "Personal Site" },
+            "17" : { "id": "17", "title": "Activities" },
+            "18" : { "id": "18", "title": "Go to cafe" },
+            "19" : { "id": "19", "title": "Go for a walk" },
+            "20" : { "id": "20", "title": "Admin" },
+            "21" : { "id": "21", "title": "Contact local ISKF chapter to meet and see if I can train/instruct" },
+            "22" : { "id": "22", "title": "Set up a free trial at one competitive" }
+        };
    
-        let body = document.getElementsByTagName('body')[0];
         let rootList = document.createElement('ol');
 
-        function renderChecklistNode(root, node) {
-            // render node.title in li
-            let li = document.createElement('li');
-            li.textContent = node.title;
-            root.appendChild(ll);
+        function render(root, node) {
+            //========= BUILD CHECKLIST ITEM ==============
 
+            //------------ build title node ---------------
+            let li = document.createElement('li');
+            li.id = node.id;
+            li.textContent = node.title + ' ';
+            //---------------------------------------------
+
+            //-------- build add sibling button -----------
+            let addButton = document.createElement('button');
+            addButton.textContent = 'Add Sibling Item';
+            li.appendChild(addButton);
+            
+            
+            // data add:
+                // 0. newNode.sibling = targetNode.sibling
+                // 1. targetNode.sibling = newNode.id
+            // html add:
+                // on click, render a text input to get a new title
+                 // onsubmit to use the input (title) to build a new checklist node
+  
+                // generate an li with the given title
+                // targetNode.nextSibling.insertBefore(newNode)
+            //---------------------------------------------
+            
+            //------------ build update feature -----------
+
+            //---------------------------------------------
+            
+            //------------ build delete button ------------
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete Item';
+            li.appendChild(deleteButton);
+
+            //data delete:
+                //1. node.prevSibling.nextSibling = node.nextSibling
+            //html delete:
+                //2. node.htmlElement.remove()
+            //---------------------------------------------
+
+            //=========== END CHECKLIST ITEM ==============
+            
+            // render node as checkListItem under root
+            root.appendChild(li);
+
+            //========= RENDER CHILDREN RECURSIVELY =====
+            let childID = relationships[node.id].child;
+            if(childID) {
+                let ol = document.createElement('ol');
+                li.appendChild(ol);
+                render(ol, nodes[childID]);
+            }
+
+            //========= RENDER SIBLINGS RECURSIVELY =====
+            let siblingID = relationships[node.id].sibling;
+            if(siblingID) {
+                render(root, nodes[siblingID]);
+            }
+        }
+
+        function addSibling(targetNode, siblingNode) {
 
         }
-        //TODO: write render(root, node)
-            // append li to root
 
-            //create new ol and attach it to li for current node
-            // render(ol, node.child)
-
-            // render(root, node.sibling)
+        window.onload = function() {
+            console.log('dis called');
+            let body = document.getElementsByTagName('body')[0];
+            body.appendChild(rootList);
+            render(rootList, nodes['0']);
+        };
 
     </script>
 </head>
