@@ -15,11 +15,14 @@ The todo-list/jot-shit-down app I've always wanted and keep making on paper
     - `id`: unique identifier
     - `title`: This is all that is displayed for child items in `list view`
     - `description`: This is displayed for the "parent" `item` in `list view`
-    - `next-child`: the `id` belonging to the `item` of the current `item's` first child (this is the first item "under" the current one)
-    - `next-sibling`: the `id` belonging to the `item` of the current `item's` next sibling (this is the next item in the list) 
     - `type` (provisional): - This is how we would polymorph `items` into having more specific behaviors
         - `todo`: renders the item with a ``checkbox`` and introduces a boolean, `complete` (default false) to reflect the `checkbox's` / `item's` completion status
+
     - `icons` (optional): images/emoji's to attach to the item
+- `relationship`
+    - `sourceId`: id of the source entity
+    - `targetId`: id of the target entity
+    - `type`: enum = `child | sibling`; 
 
 ## Flows
 
