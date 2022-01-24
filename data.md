@@ -1,40 +1,28 @@
-## Rotation
-
-0,- Music
-1,    - Offended
-2,    - Krystal
-3,- Code
-4,    - Check
-5,        - Set up the data
-6,            - [X] Scaffold in markdown
-7,            - [X] Mock this in JSON
-8,            - [X] Given json data (entities + relationships) render the page
-9,                - [X] Render the node 
-10                - [X] render its child
-11                - [X] render its sibling
-12        - Structure the page
-13            - [X] Scaffold out html
-14        - Implement the logic
-            - [] addSibling(targetNode, newNode)
-                - generate a new Node (title, and new id)
-                - append it to the specified node
-            - [] updateNode(title)
-                - modify this node's title and rerender 
-            - [] Delete
-          - Server (node + mongodb for the actual data layer)
-15        - [X] Recording/Editing process
-16    - Personal Site
-17- Activities
-18    - Go to cafe
-19    - Go for a walk
-20- Admin
-21    - Contact local ISKF chapter to meet and see if I can train/instruct
-22    - Set up a free trial at one competitive
-
-
-
-let relationships = [
-    { "target": 0, "child": 1, "sibling": 3},
+## Rotatio
+- Music
+    - Offended
+    - Krystal
+- Code
+    - Check
+        - Set up the data
+            - [X] Scaffold in markdown
+            - [X] Mock this in JSON
+            - [X] Given json data (entities + relationships) render the page
+                - [X] Render the node 
+                - [X] render its child
+                - [X] render its sibling
+        - Structure the page
+            - [X] Scaffold out html
+        - Implement the logic          - [] addSibling(targetNode, newNode)              - generate a new Node (title, and new id)              - append it to the specified node          - [] updateNode(title)              - modify this node's title and rerender           - [] Delete        - Server (node + mongodb for the actual data layer)
+        - [X] Recording/Editing process
+    - Personal Site
+- Activities
+    - Go to cafe
+    - Go for a walk
+- Admin
+    - Contact local ISKF chapter to meet and see if I can train/instruct
+    - Set up a free trial at one competitiv
+t relationships = [  { "target": 0, "child": 1, "sibling": 3},
     { "target": 1, "child": null, "sibling": 2},
     { "target": 2, "child": null, "sibling": null},
     { "target": 3, "child": 4, "sibling": 16},

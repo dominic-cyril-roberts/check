@@ -9,189 +9,181 @@
     <title>check</title>
 
     <script>
+        let currentId = 22;
+
         let relationships = {
-             "0": { "child": 1, "sibling": 3 },
-             "1": { "child": null, "sibling": 2 },
-             "2": { "child": null, "sibling": null },
-             "3": { "child": 4, "sibling": 16 },
-             "4": { "child": 5, "sibling": 17 },
-             "5": { "child": 6, "sibling": 7 },
-             "6": { "child": null, "sibling": 8 },
-             "7": { "child": null, "sibling": null },
-             "8": { "child": 9, "sibling": null },
-             "9": { "child": null, "sibling": null },
-             "10": { "child": null, "sibling": null },
-             "11": { "child": null, "sibling": null },
-             "12": { "child": 13, "sibling": 14 },
-             "13": { "child": null, "sibling": 15 },
-             "14": { "child": null, "sibling": null },
-             "15": { "child": null, "sibling": null },
-             "16": { "child": null, "sibling": null },
-             "17": { "child": 18, "sibling": 20 },
-             "18": { "child": null, "sibling": 19 },
-             "19": { "child": null, "sibling": null },
-             "20": { "child": 21, "sibling": null },
-             "21": { "child": null, "sibling": 22 },
-             "22": { "child": null, "sibling": null },
+            "0": { "parent": null, "child": 1, "nextSibling": 3, "previousSibling": null },
+            "1": { "parent": 0, "child": null, "nextSibling": 2, "previousSibling": null },
+            "2": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 1 },
+            "3": { "parent": null, "child": 4, "nextSibling": 16, "previousSibling": 0 },
+            "4": { "parent": 3, "child": 5, "nextSibling": 17, "previousSibling": null },
+            "5": { "parent": 4, "child": 6, "nextSibling": 7, "previousSibling": null },
+            "6": { "parent": 5, "child": null, "nextSibling": 8, "previousSibling": null },
+            "7": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 5 },
+            "8": { "parent": null, "child": 9, "nextSibling": null, "previousSibling": 6 },
+            "9": { "parent": 8, "child": null, "nextSibling": null, "previousSibling": null },
+            "10": { "parent": null, "child": null, "nextSibling": null, "previousSibling": null },
+            "11": { "parent": null, "child": null, "nextSibling": null, "previousSibling": null },
+            "12": { "parent": null, "child": 13, "nextSibling": 14, "previousSibling": null },
+            "13": { "parent": 12, "child": null, "nextSibling": 15, "previousSibling": null },
+            "14": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 12 },
+            "15": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 13 },
+            "16": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 3 },
+            "17": { "parent": null, "child": 18, "nextSibling": 20, "previousSibling": 4 },
+            "18": { "parent": 17, "child": null, "nextSibling": 19, "previousSibling": null },
+            "19": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 18 },
+            "20": { "parent": null, "child": 21, "nextSibling": null, "previousSibling": 17 },
+            "21": { "parent": 20, "child": null, "nextSibling": 22, "previousSibling": null },
+            "22": { "parent": null, "child": null, "nextSibling": null, "previousSibling": 21 },
         };
 
         let nodes = {
-            "0" : { "id": "0", "title": "Music" },
-            "1" : { "id": "1", "title": "Offended" },
-            "2" : { "id": "2", "title": "Krystal" },
-            "3" : { "id": "3", "title": "Code" },
-            "4" : { "id": "4", "title": "Check" },
-            "5" : { "id": "5", "title": "Set up the data" },
-            "6" : { "id": "6", "title": "Scaffold in markdown" },
-            "7" : { "id": "7", "title": "Mock this in JSON" },
-            "8" : { "id": "8", "title": "Given json data (entities + relationships) render the page" },
-            "9" : { "id": "9", "title": "Render the node " },
-            "10" : { "id": "10", "title": "render its child" },
-            "11" : { "id": "11", "title": "render its sibling" },
-            "12" : { "id": "12", "title": "Structure the page" },
-            "13" : { "id": "13", "title": "Scaffold out html" },
-            "14" : { "id": "14", "title": "Implement the logic" },
-            "15" : { "id": "15", "title": "Recording/Editing process" },
-            "16" : { "id": "16", "title": "Personal Site" },
-            "17" : { "id": "17", "title": "Activities" },
-            "18" : { "id": "18", "title": "Go to cafe" },
-            "19" : { "id": "19", "title": "Go for a walk" },
-            "20" : { "id": "20", "title": "Admin" },
-            "21" : { "id": "21", "title": "Contact local ISKF chapter to meet and see if I can train/instruct" },
-            "22" : { "id": "22", "title": "Set up a free trial at one competitive" }
+            "0": { "id": "0", "title": "Music" },
+            "1": { "id": "1", "title": "Offended" },
+            "2": { "id": "2", "title": "Krystal" },
+            "3": { "id": "3", "title": "Code" },
+            "4": { "id": "4", "title": "Check" },
+            "5": { "id": "5", "title": "Set up the data" },
+            "6": { "id": "6", "title": "Scaffold in markdown" },
+            "7": { "id": "7", "title": "Mock this in JSON" },
+            "8": { "id": "8", "title": "Given json data (entities + relationships) render the page" },
+            "9": { "id": "9", "title": "Render the node " },
+            "10": { "id": "10", "title": "render its child" },
+            "11": { "id": "11", "title": "render its sibling" },
+            "12": { "id": "12", "title": "Structure the page" },
+            "13": { "id": "13", "title": "Scaffold out html" },
+            "14": { "id": "14", "title": "Implement the logic" },
+            "15": { "id": "15", "title": "Recording/Editing process" },
+            "16": { "id": "16", "title": "Personal Site" },
+            "17": { "id": "17", "title": "Activities" },
+            "18": { "id": "18", "title": "Go to cafe" },
+            "19": { "id": "19", "title": "Go for a walk" },
+            "20": { "id": "20", "title": "Admin" },
+            "21": { "id": "21", "title": "Contact local ISKF chapter to meet and see if I can train/instruct" },
+            "22": { "id": "22", "title": "Set up a free trial at one competitive" }
         };
-   
-        let rootList = document.createElement('ol');
 
-        function render(root, node) {
-            //========= BUILD CHECKLIST ITEM ==============
+        function renderItem(node) {
+            //------------ render node text ---------------
+            let nodeElement = document.createElement('li');
+            nodeElement.id = node.id;
+            nodeElement.textContent = node.title + ' ';
 
-            //------------ build title node ---------------
-            let li = document.createElement('li');
-            li.id = node.id;
-            li.textContent = node.title + ' ';
-            //---------------------------------------------
-
-            //-------- build add sibling button -----------
+            //-------- render add-sibling button -----------
             let addButton = document.createElement('button');
             addButton.textContent = 'Add Sibling Item';
-            li.appendChild(addButton);
-            
-            
-            // data add:
-                // 0. newNode.sibling = targetNode.sibling
-                // 1. targetNode.sibling = newNode.id
-            // html add:
-                // on click, render a text input to get a new title
-                 // onsubmit to use the input (title) to build a new checklist node
-  
-                // generate an li with the given title
-                // targetNode.nextSibling.insertBefore(newNode)
-            //---------------------------------------------
-            
-            //------------ build update feature -----------
+            nodeElement.appendChild(addButton);
 
-            //---------------------------------------------
-            
-            //------------ build delete button ------------
+            // wire add sibling button to do the needful
+            addButton.onclick = () => {
+                let title = prompt("Please enter a title for the new item: ");
+
+                let newNode = addSibling(title, node);
+                let newNodeElement = renderItem(newNode);
+
+                let oldSiblingElement = nodeElement.nextSibling;
+
+                if (oldSiblingElement) {
+                    oldSiblingElement.parentElement.insertBefore(newNodeElement, oldSiblingElement);
+                } else {
+                    nodeElement.parentElement.appendChild(newNodeElement);
+                }
+            };
+
+            //------------ render delete button ------------
             let deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete Item';
-            li.appendChild(deleteButton);
+            nodeElement.appendChild(deleteButton);
 
-            //data delete:
-                //1. node.prevSibling.nextSibling = node.nextSibling
-            //html delete:
-                //2. node.htmlElement.remove()
-            //---------------------------------------------
+            // wire delete button to do the needful
+            deleteButton.onclick = () => {
+                deleteNode(node);
+                nodeElement.remove();
+            };
 
-            //=========== END CHECKLIST ITEM ==============
-            
-            // render node as checkListItem under root
-            root.appendChild(li);
+            return nodeElement;
+        }
+
+        function renderList(parentElement, node) {
+            let nodeElement = renderItem(node);
+            parentElement.appendChild(nodeElement);
 
             //========= RENDER CHILDREN RECURSIVELY =====
             let childID = relationships[node.id].child;
-            if(childID) {
+            if (childID) {
                 let ol = document.createElement('ol');
-                li.appendChild(ol);
-                render(ol, nodes[childID]);
+                nodeElement.appendChild(ol);
+                renderList(ol, nodes[childID]);
             }
 
             //========= RENDER SIBLINGS RECURSIVELY =====
-            let siblingID = relationships[node.id].sibling;
-            if(siblingID) {
-                render(root, nodes[siblingID]);
+            let siblingID = relationships[node.id].nextSibling;
+            if (siblingID) {
+                renderList(parentElement, nodes[siblingID]);
             }
         }
 
-        function addSibling(targetNode, siblingNode) {
+        function addSibling(title, targetNode) {
+            let newNode = { 'id': ++currentId, 'title': title };
+            let nextSibling = relationships[targetNode.id].nextSibling;
 
+            // point newNode to targetNode
+            relationships[newNode.id] = {};
+            relationships[newNode.id].previousSibling = targetNode.id;
+            relationships[newNode.id].nextSibling = nextSibling;
+
+            relationships[targetNode.id].nextSibling  = newNode.id;
+            // meet the sibling you are replacing if they exist
+            if (nextSibling) {
+                relationships[nextSibling].previousSibling = newNode.id;
+            }
+
+            // point the targetNode at the newNode
+            relationships[targetNode.id].nextSibling = newNode.id;
+
+            return newNode;
         }
 
-        window.onload = function() {
-            console.log('dis called');
+        function deleteNode(targetNode) {
+            let parentID = relationships[targetNode.id].parent;
+            let previousSibling = relationships[targetNode.id].previousSibling;
+            let nextSibling = relationships[targetNode.id].nextSibling;
+
+            //if this node was the first-born/eldest it needs to pass the gauntlet
+            if (nextSibling && parentID) {
+                relationships[parentID].child = nextSibling;
+                relationships[nextSibling].parent = parentID;
+                relationships[nextSibling].previousSibling = null;
+            }
+
+            //if this node was the middle child it needs to link it's siblings
+            if (previousSibling && nextSibling) {
+                relationships[previousSibling].nextSibling = nextSibling;
+                relationships[nextSibling].previousSibling = previousSibling;
+            }
+
+            //if this node was the youngest
+            if (previousSibling && !nextSibling) {
+                relationships[previousSibling].nextSibling = null;
+            }
+
+            //free up the memory
+            delete relationships[targetNode.id];
+        }
+
+        window.onload = function () {
+            let rootList = document.createElement('ol');
             let body = document.getElementsByTagName('body')[0];
+
             body.appendChild(rootList);
-            render(rootList, nodes['0']);
+
+            renderList(rootList, nodes['0']);
         };
 
     </script>
 </head>
 
 <body>
-
-    <!-- <ol>
-        <li>
-   -+-+         Rotation
-
-            <ol>
-                <li>
-                    Music
-                    <ol>
-                        <li> Offended</li>
-                        <li> Krystal</li>
-                    </ol>
-                </li>
-                <li>
-                    Code
-                    <ol>
-                        <li> Check
-                            <ol>
-                                <li> Set up the data
-                                    <ol>
-                                        <li> [X] Scaffold in markdown</li>
-                                        <li> [] Mock this in JSON</li>
-                                    </ol>
-                                </li>
-                                <li> Structure the page
-                                    <ol>
-                                        <li> [] Scaffold out html</li>
-                                        <li> Implement the logic</li>
-                                    </ol>
-                                </li>
-                                <li> [] Recording/Editing process</li>
-                            </ol>
-                        </li>
-                        <li> Personal Site</li>
-                    </ol>
-                </li>
-                <li>
-                    Activities
-                    <ol>
-                        <li> Go to cafe</li>
-                        <li> Go for a walk</li>
-                    </ol>
-                </li>
-        </li>
-        <li>
-            Admin
-            <ol>
-                <li> Contact local ISKF chapter to meet and see if I can train/instruct</li>
-                <li> Set up a free trial at one competitive </li>
-            </ol>
-        </li>
-    </ol> -->
-
 </body>
 
 </html>
